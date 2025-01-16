@@ -21,7 +21,9 @@ function App() {
    function deleteTask(taskId){
       setTasks(tasks.filter(task => task.id !== taskId))
    }
-
+   function editTask(taskId){
+      
+   }
    return (
       <div className='w-full h-screen flex justify-center items-center flex-col bg-gradient-to-r from-slate-200 to-zinc-300'>
          <div className='flex justify-center items-center flex-col h-[400px] w-[650px] mt-2'>
@@ -70,6 +72,12 @@ function App() {
                            style={{textDecoration: task.isCompleted ? "line-through" : "none"}}
                            value={task.name}
                         />
+                        <button className='bg-zinc-200 text-zinc-600 font-mono ring-1 ring-zinc-400 focus:ring-2 focus:ring-yellow-500 
+                              outline-none duration-300 placeholder:text-zinc-600 placeholder:opacity-50 rounded-full px-5 py-3.5 shadow-md focus:shadow-lg focus:shadow-yellow-500 mt-4 flex hover:bg-yellow-500 hover:text-white mr-3'
+                           onClick={() => editTask(task.id)}
+                        >
+                           Edit
+                        </button>
                         <button className='bg-zinc-200 text-zinc-600 font-mono ring-1 ring-zinc-400 focus:ring-2 focus:ring-lime-500
                               outline-none duration-300 placeholder:text-zinc-600 placeholder:opacity-50 rounded-full px-5 py-3.5 shadow-md focus:shadow-lg focus:shadow-lime-500 mt-4 flex hover:bg-lime-500 hover:text-white mr-3'
                            onClick={() => setTaskComplete(task.id)}
